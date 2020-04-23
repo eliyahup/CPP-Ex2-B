@@ -162,13 +162,15 @@ string Tree::find(string relation){
         return root->father->name;
     else if(relation=="grandfather"&&root->mother->father!=nullptr)
         return root->mother->father->name;
-    else if(relation=="grandfather"&&root->father->father!=nullptr)
+    else if(relation=="grandfather"&&root->mother->mother!=nullptr)
+        return root->mother->mother->name;
+    else if(relation=="grandfather"&&root->father!=nullptr&&root->father->father!=nullptr)
         return root->father->father->name;
     else if(relation=="grandmother"&&root->father->mother!=nullptr)
         return root->father->mother->name;
     else if(relation=="great-grandmother"&&root->mother->father->mother!=nullptr)
         return root->mother->father->mother->name;
-    else if(relation=="great-grandfather"&&root->mother->father->father!=nullptr)
+    else if(relation=="great-grandfather"&&root->mother->father!=nullptr&&root->mother->father->father!=nullptr)
     return root->mother->father->father->name;
 
     else {
